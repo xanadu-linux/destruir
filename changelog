@@ -1,4 +1,28 @@
-commit fdcfdbea4cdb317335718ad583775f5c54b114d1 (HEAD, origin/master, origin/HEAD, master)
+commit 2b69dbd926892180352c83c45a2818b03af4f1e3 (HEAD, origin/master, origin/HEAD, master)
+Author: jose perez <sinfallas@gmail.com>
+Date:   Thu Nov 12 20:30:39 2015 -0430
+
+    * zenodo
+
+commit 6ec027be61dc915cbae2713a36480e5bbfebc556
+Author: jose perez <sinfallas@gmail.com>
+Date:   Thu Nov 12 20:11:38 2015 -0430
+
+    * travis final
+
+commit bd3e9c4c41368af0c2eb6a5547f7474ecc532875
+Author: jose perez <sinfallas@gmail.com>
+Date:   Thu Nov 12 20:10:07 2015 -0430
+
+    * travis
+
+commit 741418d2b1fc34fc7d91c4076309b20942799d76
+Author: jose perez <sinfallas@gmail.com>
+Date:   Thu Nov 5 22:20:58 2015 -0430
+
+    * changelog
+
+commit fdcfdbea4cdb317335718ad583775f5c54b114d1
 Author: jose perez <sinfallas@gmail.com>
 Date:   Thu Nov 5 22:20:45 2015 -0430
 
