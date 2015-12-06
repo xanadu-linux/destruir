@@ -33,7 +33,7 @@ case "$1" in
 		poweroff
 
 	*)
-            	echo "USO: $0 {start}"
+            	echo "USO: $(basename $0) {start}"
 		;;
 
 esac
