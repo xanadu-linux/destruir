@@ -34,6 +34,7 @@ case "$1" in
 		fi
 		sdmem -fl
 		poweroff
+		;;
 
 	*)
             	echo "USO: $(basename $0) {start}"
