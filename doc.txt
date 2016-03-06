@@ -1,3 +1,2 @@
 https://wiki.archlinux.org/index.php/Securely_wipe_disk
 http://www.noah.org/wiki/Dd_-_Destroyer_of_Disks
-

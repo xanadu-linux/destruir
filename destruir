@@ -27,7 +27,7 @@ case "$1" in
 			cat /dev/zero > "$i"
 			cat /dev/urandom > "$i"
 			dd if=/dev/zero of="$i" iflag=nocache oflag=direct bs=1048576
-			shred -vfz -n 3 "$i"
+			shred -vfz -n 5 "$i"
 		done
 		sdmem -fl
 		poweroff
