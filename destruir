@@ -7,37 +7,43 @@ if [[ "$EUID" != "0" ]]; then
 	exit 1
 fi
 
+function comun () {
+	echo -e "\e[00;31mEl proceso puede durar varias horas, por favor espere...\e[00m"
+	mv -f /etc/memlockd.cfg /etc/memlockd.cfg.old
+	mv -f /etc/memlockd.cfg.des /etc/memlockd.cfg
+	systemctl start memlockd
+	history -c
+	umount -fl /tmp
+	umount -fl /var/tmp
+	umount -fl /var/log
+	umount -fl /var/cache/samba
+	umount -fl /var/spool
+}
+
 case "$1" in
-	start)
-		echo -e "\e[00;31mEl proceso puede durar varias horas, por favor espere...\e[00m"
-		mv -f /etc/memlockd.cfg /etc/memlockd.cfg.old
-		mv -f /etc/memlockd.cfg.des /etc/memlockd.cfg
-		systemctl start memlockd
-		history -c
-		umount -fl /tmp
-		umount -fl /var/tmp
-		umount -fl /var/log
-		umount -fl /var/cache/samba
-		umount -fl /var/spool
-		if ! [[ -d /lib/live/mount/rootfs ]]; then
-			for i in $(fdisk -l | grep "Disco" | sed '/zram/d' | sed '/loop/d' | awk '{print $2}' | sed 's/.$//g'); do
-				dd if=/dev/zero of="$i" bs=1M count=10
-				cat /dev/urandom > "$i"
-				cat /dev/zero > "$i"
-				dd if=/dev/zero of="$i" iflag=nocache oflag=direct bs=1048576
-				shred -vfz -n 5 "$i"
-			done
-		else
-			for j in $(fdisk -l | grep "swap" | awk '{print $1}'); do
-				sswap -fl "$j"
-			done
-		fi
+	all)
+		comun
+		for i in $(fdisk -l | grep "Disco" | sed '/zram/d' | sed '/loop/d' | awk '{print $2}' | sed 's/.$//g'); do
+			cat /dev/zero > "$i"
+			cat /dev/urandom > "$i"
+			dd if=/dev/zero of="$i" iflag=nocache oflag=direct bs=1048576
+			shred -vfz -n 3 "$i"
+		done
+		sdmem -fl
+		poweroff
+		;;
+
+	swap)
+		comun
+		for j in $(fdisk -l | grep "swap" | awk '{print $1}'); do
+			sswap -fl "$j"
+		done
 		sdmem -fl
 		poweroff
 		;;
 
 	*)
-            	echo "USO: $(basename $0) {start}"
+            	echo "USO: $(basename $0) {all|swap}"
 		;;
 
 esac
