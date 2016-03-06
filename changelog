@@ -1,4 +1,17 @@
-commit 8b774c80a8ea7f41654c97fd646dc301711d1ece (HEAD, origin/master, origin/HEAD, master)
+commit 8cd1f26fb053e44c3242cd3a6a776f4358a218b2 (HEAD, origin/master, origin/HEAD, master)
+Author: jose perez <sinfallas@gmail.com>
+Date:   Sat Mar 5 22:47:13 2016 -0430
+
+    * se separa el script en all y swap
+    * se hace mas rapido
+
+commit 89344e8673b0bde831ae172493f004b9f12d2b0f
+Author: jose perez <sinfallas@gmail.com>
+Date:   Sat Mar 5 22:38:12 2016 -0430
+
+    * changelog
+
+commit 8b774c80a8ea7f41654c97fd646dc301711d1ece
 Author: jose perez <sinfallas@gmail.com>
 Date:   Sat Mar 5 22:37:38 2016 -0430
 
