@@ -26,7 +26,7 @@ function comun () {
 
 case "$1" in
 	all)
-		pause "Presione Enter para continuar o Ctrl + C para finalizar."
+		pause "Presione Enter para continuar o Ctrl + C para finalizar..."
 		comun
 		for i in $(fdisk -l | grep "Disco" | sed '/zram/d' | sed '/loop/d' | awk '{print $2}' | sed 's/.$//g'); do
 			cat /dev/zero > "$i"
@@ -39,7 +39,7 @@ case "$1" in
 		;;
 
 	swap)
-		pause "Presione Enter para continuar o Ctrl + C para finalizar."
+		pause "Presione Enter para continuar o Ctrl + C para finalizar..."
 		comun
 		for j in $(fdisk -l | grep "swap" | awk '{print $1}'); do
 			sswap -fl "$j"
