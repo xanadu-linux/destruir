@@ -4,4 +4,4 @@
 [![DOI](https://zenodo.org/badge/4102/sinfallas/destruir.svg)](https://zenodo.org/badge/latestdoi/4102/sinfallas/destruir)
 [![Build Status](https://travis-ci.org/sinfallas/destruir.svg?branch=master)](https://travis-ci.org/sinfallas/destruir)
 
-Script to remove all the information from a device
+Script to remove all data from a pc
