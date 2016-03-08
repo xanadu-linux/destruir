@@ -1,4 +1,35 @@
-commit e5e6700a7f20001425976e4bc7fe99aa09e31ea9 (HEAD, origin/master, origin/HEAD, master)
+commit 187162ff32153c065e9f0e71b391ee729b22d513 (HEAD, origin/master, origin/HEAD, master)
+Author: jose perez <sinfallas@gmail.com>
+Date:   Tue Mar 8 10:41:53 2016 -0430
+
+    * bugfix
+
+commit ccc8eaba1bfbde3e285a54a1690deabcbd8cee84
+Merge: 0f8cc73 8045ea5
+Author: jose perez <sinfallas@gmail.com>
+Date:   Tue Mar 8 10:36:43 2016 -0430
+
+    Merge branch 'master' of github.com:sinfallas/destruir
+
+commit 0f8cc731bf46256e2d45bf63d6b3ae17afeaa6de
+Author: jose perez <sinfallas@gmail.com>
+Date:   Tue Mar 8 10:35:32 2016 -0430
+
+    * se coloca un mensaje de confirmacion
+
+commit 8045ea5aba174dd6c6db848a104e795eaad9b2d8
+Author: Jose Perez <sinfallas@users.noreply.github.com>
+Date:   Mon Mar 7 10:30:22 2016 -0430
+
+    Update README.md
+
+commit 135972b332817bbebf2b969936119391ac68d74c (tag: v0.2)
+Author: jose perez <sinfallas@gmail.com>
+Date:   Sat Mar 5 22:52:14 2016 -0430
+
+    * changelog
+
+commit e5e6700a7f20001425976e4bc7fe99aa09e31ea9
 Author: jose perez <sinfallas@gmail.com>
 Date:   Sat Mar 5 22:52:06 2016 -0430
 
