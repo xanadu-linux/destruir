@@ -1,4 +1,22 @@
-commit e065ea6bcd7f2fd21daff892cd933d6a8e7dd3df (HEAD, origin/master, origin/HEAD, master)
+commit 54d856360bee9602370137b0b7347da5fef7ab4f (HEAD, origin/master, origin/HEAD, master)
+Author: jose perez <sinfallas@gmail.com>
+Date:   Tue Feb 21 14:09:38 2017 -0400
+
+    * se desactivan las swap antes de proceder
+
+commit 228cfc9158db0a9afb4801521c373e4ce29aca42
+Author: Jose Perez <sinfallas@users.noreply.github.com>
+Date:   Tue Apr 19 20:20:18 2016 -0430
+
+    Update README.md
+
+commit 25a73da2a364eb8505c85c4d77ca4adc2d39d333
+Author: jose perez <sinfallas@gmail.com>
+Date:   Tue Apr 19 19:57:23 2016 -0430
+
+    * changelog
+
+commit e065ea6bcd7f2fd21daff892cd933d6a8e7dd3df
 Author: jose perez <sinfallas@gmail.com>
 Date:   Tue Apr 19 19:56:51 2016 -0430
 
