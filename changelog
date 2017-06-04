@@ -1,4 +1,18 @@
-commit 54d856360bee9602370137b0b7347da5fef7ab4f (HEAD, origin/master, origin/HEAD, master)
+commit f4b0a0466e7e8c634efa72c4263eed913dc61078 (HEAD, origin/master, origin/HEAD, master)
+Author: jose perez <sinfallas@gmail.com>
+Date:   Sun Jun 4 18:36:16 2017 -0400
+
+    * se traduce al espanol
+    * se agrega un nuevo modo llamado rapido
+    * se optimizan los diferentes modos
+
+commit 4f6aa811c37535f28499b6b5bd3dcc495e69bae9
+Author: jose perez <sinfallas@gmail.com>
+Date:   Tue Feb 21 14:10:14 2017 -0400
+
+    * changelog
+
+commit 54d856360bee9602370137b0b7347da5fef7ab4f
 Author: jose perez <sinfallas@gmail.com>
 Date:   Tue Feb 21 14:09:38 2017 -0400
 
