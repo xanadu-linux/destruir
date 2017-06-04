@@ -7,13 +7,19 @@ if [[ "$EUID" != "0" ]]; then
 	exit 1
 fi
 miswap=$(fdisk -l | grep "swap" | awk '{print $1}')
+midisco=$(fdisk -l | grep "Disco" | sed '/zram/d' | sed '/loop/d' | awk '{print $2}' | sed 's/.$//g')
 
-function pause() {
+function pause () {
 	read -p "$*"
 }
 
 function comun () {
 	echo -e "\e[00;31mEl proceso puede durar varias horas, por favor espere...\e[00m"
+	echo 1024 > /proc/sys/vm/min_free_kbytes
+	echo 3  > /proc/sys/vm/drop_caches
+	echo 1  > /proc/sys/vm/oom_kill_allocating_task
+	echo 1  > /proc/sys/vm/overcommit_memory
+	echo 0  > /proc/sys/vm/oom_dump_tasks
 	mv -f /etc/memlockd.cfg /etc/memlockd.cfg.old
 	mv -f /etc/memlockd.cfg.des /etc/memlockd.cfg
 	systemctl start memlockd
@@ -29,31 +35,41 @@ function comun () {
 }
 
 case "$1" in
-	all)
+	todo)
 		pause "Presione Enter para continuar o Ctrl + C para finalizar..."
 		comun
-		for i in $(fdisk -l | grep "Disco" | sed '/zram/d' | sed '/loop/d' | awk '{print $2}' | sed 's/.$//g'); do
+		for i in $midisco; do
 			cat /dev/zero > "$i"
 			cat /dev/urandom > "$i"
 			dd if=/dev/zero of="$i" iflag=nocache oflag=direct bs=1048576
-			shred -vfz -n 5 "$i"
+			shred -fz -n 5 "$i"
 		done
-		sdmem -fl
+		sdmem
+		poweroff
+		;;
+
+	rapido)
+		pause "Presione Enter para continuar o Ctrl + C para finalizar..."
+		comun
+		for i in $midisco; do
+			cat /dev/zero > "$i"
+		done
+		sdmem -ll
 		poweroff
 		;;
 
 	swap)
 		pause "Presione Enter para continuar o Ctrl + C para finalizar..."
 		comun
-		for j in $(fdisk -l | grep "swap" | awk '{print $1}'); do
-			sswap -fl "$j"
+		for j in $miswap; do
+			sswap -lz "$j"
 		done
-		sdmem -fl
+		sdmem -l
 		poweroff
 		;;
 
 	*)
-            	echo "USO: $(basename $0) {all|swap}"
+            	echo "USO: $(basename $0) {todo|rapido|swap}"
 		;;
 
 esac
