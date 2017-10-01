@@ -2,11 +2,10 @@
 # Made by Sinfallas <sinfallas@yahoo.com>
 # Licence: GPL-2
 LC_ALL=C
-if [[ "$EUID" != "0" ]]; then
-	echo -e "\e[00;31mERROR: DEBES SER ROOT\e[00m"
-	exit 1
-fi
-miswap=$(fdisk -l | grep "swap" | awk '{print $1}')
+IFS=" "
+echo "$BASHPID" > /run/$(basename $0).pid
+source /usr/bin/variables
+rootcli
 midisco=$(fdisk -l | grep "Disco" | sed '/zram/d' | sed '/loop/d' | awk '{print $2}' | sed 's/.$//g')
 
 function pause () {
@@ -73,4 +72,5 @@ case "$1" in
 		;;
 
 esac
+rm -f /run/$(basename $0).pid
 exit 0
